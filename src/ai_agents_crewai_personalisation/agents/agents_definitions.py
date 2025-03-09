@@ -18,31 +18,17 @@ website_search_tool = WebsiteSearchTool()
 class CustomAgents:
 
     # Agent defintion
-    def agent_1_name(self):
+    def content_personalisation_agent(self):
         return Agent(
-            role="you are a researcher with good academic experience",
+            role="you are a content personalisation expert",
             backstory=dedent(
-                f"""You have some good experience in researching topics and fetcing summarized information"""
+                f"""You have some good experience in creating personalised offer content based on the demographic and contextual information provided"""
             ),
             goal=dedent(
-                f"""Get 200 words of summarized infromation on the specified topic"""
+                f"""Convert the supplied offer information into an attractive offer description based on the demographic and contextual information provided give maximum 100 words"""
             ),
-            tools=[serper_dev_tool, website_search_tool],
+            #tools=[serper_dev_tool, website_search_tool],
             allow_delegation=False,
             verbose=True,
-            llm=llm_definitions.Ollama,
-        )
-
-    # Agent defintion
-    def agent_2_name(self):
-        return Agent(
-            role="you are an expert encrypter",
-            backstory=dedent(
-                f"""You can create secret hash codes of a text using secret code tools"""
-            ),
-            goal=dedent(f"""Get a secret code of the 200 words of summarized essay"""),
-            tools=[secret_code_tool],
-            allow_delegation=False,
-            verbose=True,
-            llm=llm_definitions.Ollama,
+            llm=llm_definitions.OpenAIGPT4,
         )

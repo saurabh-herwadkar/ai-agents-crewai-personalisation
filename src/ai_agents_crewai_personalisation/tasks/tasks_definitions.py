@@ -7,33 +7,39 @@ from textwrap import dedent
 class CustomTasks:
 
     # Task definition
-    def task_1_name(self, agent, var1):
+    def content_personalisation_task(self, agent, description):
         return Task(
             description=dedent(
                 f"""
-            Get some information on the topic. 
-            Information should not contain any aggressive or inflammatory content
-            Do not use hyperbole or exaggeration
-    
-            Use this topic: {var1}
+            Based on the description provided use the agent to convert it into an offer description 
+            Use only llm
+
+            First we need the original deescription as a aprt of the response
+            It can be classified under
+            description:
+
+            then we need a version of this description for the below 4 social media platforms
+
+            twitter facebook instagram and mobile app push notification
+            Use # and similar social emdia best practices wherever applicable
+
+            for each category give an header for example twitter:
+
+            then need a personalised description for 6 categories
+            for 10-25 years for 25-50 years and for 50-100 years
+            
+            both for female and male
+
+            Hence total 18 categories
+            For each catgeory give the header as an example 10-25-male , 50-100-female and so on...all small case
+            
+            
+            Use this description: {description}
             
         """
             ),
-            expected_output="Share 200 words on the specified topic as an essay text",
+            expected_output="The original description and Total 10 personalised descriptions for social media platofrms and categories",
             agent=agent,
         )
 
-    # Task definition
-    def task_2_name(self, agent):
-        return Task(
-            description=dedent(
-                f"""
-           The previous task will return an essay of 200 words.
-           that will be the input text
-           use the secret code tool to creat a secret code and share it along with the 200 word essay
-            
-        """
-            ),
-            expected_output="Share the secret code and the essay both",
-            agent=agent,
-        )
+    
