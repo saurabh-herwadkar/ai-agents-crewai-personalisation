@@ -41,5 +41,3 @@ class CustomTasks:
             expected_output="The original description and Total 10 personalised descriptions for social media platofrms and categories",
             agent=agent,
         )
-
-    

@@ -27,7 +27,7 @@ class CustomAgents:
             goal=dedent(
                 f"""Convert the supplied offer information into an attractive offer description based on the demographic and contextual information provided give maximum 100 words"""
             ),
-            #tools=[serper_dev_tool, website_search_tool],
+            # tools=[serper_dev_tool, website_search_tool],
             allow_delegation=False,
             verbose=True,
             llm=llm_definitions.OpenAIGPT4,
